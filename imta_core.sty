@@ -490,16 +490,22 @@
 \newcommand\subsubsubsection{}                           % We create a new command
 \titleclass{\subsubsubsection}{straight}[\subsubsection] % Make it a title command
 \newcounter{subsubsubsection}[subsubsection]             % We create a new counter that inherits from subsubsection
+
+% Redefine labels
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}}
+\renewcommand\thesubparagraph{\theparagraph.\arabic{subparagraph}}
+
 \renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}} % The complete counter is updated
 \titlespacing{\subsubsubsection}{0pt}{2em}{1em}                                % Spacing is updated
 \titleformat{\subsubsubsection}[hang]{\normalsize\it}                % Layout is updated
-{\thesubsubsubsection.}{1em}{\normalsize\it}[\normalsize] % Formatting is updated
+{\thesubsubsubsection}{1em}{\normalsize\it}[\normalsize] % Formatting is updated
 
 % Adjusting Table Of Contents levels for the \subsubsubsection
 \makeatletter
     \setcounter{tocdepth}{6} % We increase the level of visibility in the TOC
     \def\toclevel@subsubsubsection{4}
-    \def\l@subsubsubsection{\@dottedtocline{5}{11em}{5em}}
+    \def\l@subsubsubsection{\@dottedtocline{4}{11em}{5em}}
     \def\toclevel@paragraph{5}
     \def\l@paragraph{\@dottedtocline{5}{14em}{6em}}
     \def\toclevel@subparagraph{6}
